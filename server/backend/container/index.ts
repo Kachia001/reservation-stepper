@@ -2,13 +2,13 @@ import 'reflect-metadata'
 import { Container } from 'inversify'
 import { CreateReservationUseCase } from '../application/reservation/CreateReservationUseCase'
 import type { ReservationRepository } from '../domain/reservation/repositories/ReservationRepository'
-import { InMemoryReservationRepository } from '../infrastructure/persistence/InMemoryReservationRepository'
+import { DrizzleReservationRepository } from '../infrastructure/persistence/DrizzleReservationRepository'
 import { ReservationController } from '../presentation/http/controllers/ReservationController'
 import { TYPES } from './types'
 
 const container = new Container()
 
-const reservationRepository = new InMemoryReservationRepository()
+const reservationRepository = new DrizzleReservationRepository()
 const createReservationUseCase = new CreateReservationUseCase(reservationRepository)
 const reservationController = new ReservationController(createReservationUseCase)
 

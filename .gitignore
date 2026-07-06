@@ -1,9 +1,14 @@
 .nuxt
 .output
 node_modules
+.idea/
 .env
 .env.*
 !.env.example
+
+supabase/.branches/
+supabase/.temp/
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
